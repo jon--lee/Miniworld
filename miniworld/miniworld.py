@@ -950,7 +950,7 @@ class MiniWorldEnv(gym.Env):
         # Check for entity intersection
         for ent2 in self.entities:
             # Entities can't intersect with themselves
-            if ent2 is ent:
+            if ent2 is ent or ent2.ghost:
                 continue
 
             px, _, pz = ent2.pos

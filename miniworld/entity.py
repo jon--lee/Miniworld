@@ -41,7 +41,7 @@ COLOR_NAMES = sorted(list(COLORS.keys()))
 
 
 class Entity:
-    def __init__(self):
+    def __init__(self, ghost=False):
         # World position
         # Note: for most entities, the position is at floor level
         self.pos = None
@@ -54,6 +54,9 @@ class Entity:
 
         # Height of bounding cylinder
         self.height = 0
+
+        # Can you walk through this?
+        self.ghost = ghost
 
     def randomize(self, params, rng):
         """
@@ -388,8 +391,8 @@ class Box(Entity):
     Colored box object
     """
 
-    def __init__(self, color, size=0.8):
-        super().__init__()
+    def __init__(self, color, size=0.8, ghost=False):
+        super().__init__(ghost=ghost)
 
         if type(size) is int or type(size) is float:
             size = np.array([size, size, size])

@@ -26,6 +26,7 @@ __all__ = [
     "OneRoom",
     "OneRoomS6",
     "OneRoomS6Fast",
+    "OneRoomS6FastMulti"
     "PickupObjects",
     "PutNext",
     "RoomObjects",
@@ -90,6 +91,16 @@ gym.register(
     id="MiniWorld-OneRoomS6Fast-v0",
     entry_point="miniworld.envs.oneroom:OneRoomS6Fast",
 )
+
+
+
+gym.register(
+    id="MiniWorld-OneRoomS6FastMultiFourBoxesFixedInit-v0",
+    entry_point="miniworld.envs.oneroom:OneRoomS6FastMulti",
+    kwargs={'render_mode': 'rgb_array', 'random_init': False, 'num_boxes': 4},
+)
+
+
 
 gym.register(
     id="MiniWorld-PickupObjects-v0",
